@@ -1,13 +1,8 @@
 <template>
   <div>
-  <b-form-textarea
-    id="textarea"
-    v-model="text"
-    placeholder="Enter something..."
-    rows="25"
-    max-rows="6"
-  ></b-form-textarea>
-  <b-button @click="submitTx">Sign me </b-button>
+    <b-form-textarea id="textarea" v-model="text" placeholder="Enter something..." rows="25" max-rows="6"></b-form-textarea>
+    <b-button @click="submitTx('nami')">Sign and Submit (Nami) </b-button>
+    <b-button @click="submitTx('ccvault')">Sign and Submit (Ccvault) </b-button>
   </div>
 </template>
 
@@ -23,12 +18,12 @@ export default {
      }
   } ,
   created:async ()=>{
-    let c = await window.cardano.ccvault.enable()  ;
+    let c = await window.cardano.nami.enable()  ;
     window.adaProvider=c
   },
   methods:{
-    async submitTx(){
-
+    async submitTx(wallet){
+      const provider=await window.cardano[wallet].enable();
       let transaction;
       try {
         // const S = await import('@emurgo/cardano-serialization-lib-browser')
@@ -40,7 +35,7 @@ export default {
         console.log(e)
         return;
       }
-        const witnesesRaw = await window.adaProvider.signTx(
+        const witnesesRaw = await provider.signTx(
           Buffer.from(transaction.to_bytes()).toString('hex'),
           true
         )
@@ -73,12 +68,16 @@ export default {
         } else {
           newWitnessSet.set_vkeys(newWitnesses.vkeys())
         }
+        console.log(newWitnessSet)
         transaction = Transaction.new(transaction.body(), newWitnessSet, transaction.auxiliary_data());
         const signedTxString = Buffer.from(transaction.to_bytes()).toString('hex')
         // @ts-ignore
-        await window.adaProvider.submitTx(signedTxString);
+        console.log({
+          additionWitnessSet: witnesesRaw,
+          finalTx:   signedTxString
+        })
+        await provider.submitTx(signedTxString);
       }catch(e){
-        alert(e.message);
         console.log(e);
       }
     }

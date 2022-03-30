@@ -9,7 +9,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@emurgo/cardano-serialization-lib-browser": "^10.0.4",
+    "@emurgo/cardano-serialization-lib-browser": "10.0.5-beta.1",
     "bootstrap": "^4.6.1",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.19.3",

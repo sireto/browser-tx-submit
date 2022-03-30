@@ -937,10 +937,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@emurgo/cardano-serialization-lib-browser@^10.0.4":
-  version "10.0.4"
-  resolved "https://registry.yarnpkg.com/@emurgo/cardano-serialization-lib-browser/-/cardano-serialization-lib-browser-10.0.4.tgz#b3dcd32cc69e05b1e42d1ee25a60e112dc444d47"
-  integrity sha512-rCLmHtZkkgD9BTPjYw19vVLLaHI2sQ9qwjS2oX9eNCtB5P28K3rAO7QI05p5bbxYvg+35+xGhhYP1HMpBnE2FA==
+"@emurgo/cardano-serialization-lib-browser@10.0.5-beta.1":
+  version "10.0.5-beta.1"
+  resolved "https://registry.yarnpkg.com/@emurgo/cardano-serialization-lib-browser/-/cardano-serialization-lib-browser-10.0.5-beta.1.tgz#90e5c57e18fe248ab05042f45652b23d365658c8"
+  integrity sha512-vvZi/fwo4Sk1C6ih2hS2cYnc0X36Lf9JmyMYqPfFX8jLq9sYoBCnnDE9QYpKOEg8uOd2LP4pVl6FBdDrKRdYDQ==
 
 "@gar/promisify@^1.0.1":
   version "1.1.3"
